@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "echarts": "^4.2.0-rc.2",
+    "material-design-icons": "^3.0.1",
+    "normalize.css": "^8.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
