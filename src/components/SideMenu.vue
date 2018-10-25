@@ -5,16 +5,16 @@
         </div>
         <ul class="side-menu-list">
             <li class="side-menu-item">
-                <router-link to="/Dashboard">Dashboard</router-link>
+                <router-link to="/Dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></router-link>
             </li>
             <li class="side-menu-item">
-                <router-link to="/Map">Map</router-link>
+                <router-link to="/Map"><i class="material-icons">place</i><span>Map</span></router-link>
             </li>
             <li class="side-menu-item">
-                <router-link to="/SystemConfiguration">System Configuration</router-link>
+                <router-link to="/SystemConfiguration"><i class="material-icons">settings</i><span>System Configuration</span></router-link>
             </li>
             <li class="side-menu-item">
-                <router-link to="/DeviceManagement">Device Management</router-link>
+                <router-link to="/DeviceManagement"><i class="material-icons">list</i><span>Device Management</span></router-link>
             </li>
         </ul>
     </div>
@@ -28,6 +28,7 @@ export default {
 
 <style lang="stylus">
 .side-menu.container a
+    white-space nowrap
     text-decoration none
 
 .side-menu-heading
@@ -51,13 +52,20 @@ export default {
   >a
     display block
     color #ffffff
-    padding 1em 1em
+    padding 1em .5em
     
     &:hover 
       background #333
+
+    >span
+      padding-left 3px
+      vertical-align middle
   
   >a.router-link-active
     background #1f8dd6
     box-shadow 3px 0px 3px #1f8dd6
+
+.material-icons
+  vertical-align middle
 </style>
 

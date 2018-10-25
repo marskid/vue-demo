@@ -5,7 +5,14 @@
       <Side-Menu id="side-menu"></Side-Menu>
     </div>
     <div id="main">
-      <router-view></router-view>
+      <header>
+        <ul class="breadcrumb">
+          <li v-for="(item, index) in breadcrumb" :key="index">{{ item }}</li>
+        </ul>
+      </header>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -17,7 +24,8 @@ export default {
   name: 'layout',
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      breadcrumb: []
     }
   },
   methods: {
@@ -27,12 +35,21 @@ export default {
   },
   components: {
     SideMenu
+  },
+  mounted() {
+    // eslint-disable-next-line 
+    this.$router.afterEach((to, from) => {
+      this.breadcrumb = [ to.name ]
+    })
   }
 }
 </script>
 
 
 <style lang="stylus">
+html,body,#layout,#main
+  height 100%
+
 #layout
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
@@ -56,9 +73,11 @@ export default {
 
   @media screen and (max-width: 600px)
     left -200px
+    box-shadow none
 
     &.active
       left 0
+      box-shadow 3px 0px 3px #888888
 
       >#menuLink
         left 160px
@@ -71,10 +90,10 @@ export default {
   width 40px
   height 40px
   text-decoration none
-  color #ffffff
-  background #191818
+  color #888888
+  background-color #191818
   text-align center
-  vertical-align middle
+  z-index 1000
   
   >i
     line-height 40px
@@ -87,4 +106,28 @@ export default {
 
 #main
   padding-left 3px
+
+  @media screen and (max-width: 600px)
+    padding-left 0
+
+header
+  border-bottom 1px solid rgba(0,0,0,.1)
+  @media screen and (max-width: 600px)
+    padding-left 40px
+    overflow hidden
+
+.breadcrumb
+  height 39px
+  padding 0 1em
+  margin 0
+  line-height 39px
+  list-style-type none
+  background #f9f9f9
+
+  li
+    display inline-block
+  li + li:before
+    color #CCCCCC
+    content "/ "
+    padding 0 5px
 </style>

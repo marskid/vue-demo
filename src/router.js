@@ -22,12 +22,12 @@ export default new Router({
     },
     {
       path: '/SystemConfiguration',
-      name: 'SystemConfiguration',
+      name: 'System Configuration',
       component: () => import(/* webpackChunkName: "SystemConfiguration" */ './views/SystemConfiguration.vue')
     },
     {
       path: '/DeviceManagement',
-      name: 'DeviceManagement',
+      name: 'Device Management',
       component: () => import(/* webpackChunkName: "DeviceManagement" */ './views/DeviceManagement.vue')
     }
   ]
