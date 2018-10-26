@@ -1,13 +1,16 @@
 <template>
   <div id="layout">
-    <div id="menu" :class="{ active: showMenu }">
-      <a id="menuLink" class="menu-link" href="javascript:void(0);" @click="toggleMenu"><i class="material-icons">{{ showMenu ? 'clear' : 'menu' }}</i></a>
-      <Side-Menu id="side-menu"></Side-Menu>
+    <div id="menu" class="pure-menu" :class="{ active: showMenu }">
+      <Side-Menu id="side-menu" @click.native="showMenu = !showMenu"></Side-Menu>
     </div>
     <div id="main">
       <header>
+        <a class="menu-link" :class="{ active: showMenu }" href="javascript:void(0);" @click="showMenu = !showMenu">
+          <menu-icon v-show="!showMenu"/>
+          <close-icon v-show="showMenu"/>
+        </a>
         <ul class="breadcrumb">
-          <li v-for="(item, index) in breadcrumb" :key="index">{{ item }}</li>
+          <li v-for="(item, index) in breadcrumb" :key="index"><span>{{ item }}</span></li>
         </ul>
       </header>
       <keep-alive>
@@ -18,6 +21,8 @@
 </template>
 
 <script>
+import CloseIcon from 'icons/Close'
+import MenuIcon from 'icons/Menu'
 import SideMenu from './components/SideMenu.vue'
 
 export default {
@@ -25,15 +30,12 @@ export default {
   data() {
     return {
       showMenu: false,
-      breadcrumb: []
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu
+      breadcrumb: ['']
     }
   },
   components: {
+    CloseIcon,
+    MenuIcon,
     SideMenu
   },
   mounted() {
@@ -45,10 +47,12 @@ export default {
 }
 </script>
 
-
 <style lang="stylus">
 html,body,#layout,#main
   height 100%
+
+body
+  overflow auto
 
 #layout
   font-family 'Avenir', Helvetica, Arial, sans-serif
@@ -57,52 +61,38 @@ html,body,#layout,#main
   padding-left: 200px
   left: 0
 
+  @media print
+    padding-left: 0
+
   @media screen and (max-width: 600px)
     padding-left: 0
 
 #menu
   position: fixed
   width: 200px
+  margin-left -200px
   top: 0
-  left: 0
+  left: 200px
   bottom: 0
-  background: #191818
+  background-color: #191818
   box-shadow 3px 0px 3px #888888
   overflow-y auto
   z-index 1000
 
+  @media print
+    left 0
+    box-shadow none
+
   @media screen and (max-width: 600px)
-    left -200px
+    left 0
     box-shadow none
 
     &.active
-      left 0
+      left 200px
       box-shadow 3px 0px 3px #888888
 
-      >#menuLink
-        left 160px
-
-#menuLink
-  position fixed
-  display inline-block
-  top 0
-  left 0
-  width 40px
-  height 40px
-  text-decoration none
-  color #888888
-  background-color #191818
-  text-align center
-  z-index 1000
-  
-  >i
-    line-height 40px
-
-  .active
-    left 200px
-
-  @media screen and (min-width: 600px)
-    display none
+#layout, #menu
+    transition all 0.2s ease-out
 
 #main
   padding-left 3px
@@ -112,22 +102,47 @@ html,body,#layout,#main
 
 header
   border-bottom 1px solid rgba(0,0,0,.1)
+  margin-bottom -1px
+  background #f9f9f9
+  overflow hidden
+  white-space nowrap
+
+.menu-link
+  display inline-block
+  text-decoration none
+  width 40px
+  font-size 2em
+  color #888888
+  background-color #191818
+  text-align center
+  z-index 1000
+
   @media screen and (max-width: 600px)
-    padding-left 40px
-    overflow hidden
+    &.active
+      position fixed
+      top 0
+      left 0
+
+      &+ul
+        margin-left 40px
+
+  @media screen and (min-width: 600px)
+    display none
 
 .breadcrumb
-  height 39px
+  display inline-block
+  height 40px
   padding 0 1em
   margin 0
-  line-height 39px
   list-style-type none
-  background #f9f9f9
+  vertical-align top
 
   li
     display inline-block
+    line-height 39px
   li + li:before
     color #CCCCCC
     content "/ "
     padding 0 5px
+
 </style>

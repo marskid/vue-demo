@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'normalize.css'
-import 'material-design-icons/iconfont/material-icons.css'
+import 'purecss'
+import 'purecss/build/grids-responsive.css'
+import 'vue-material-design-icons/styles.css'
 
 Vue.config.productionTip = false
 
