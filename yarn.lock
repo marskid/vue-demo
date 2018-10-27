@@ -7523,6 +7523,13 @@ vue-baidu-map@^0.21.13:
     bmaplib.markerclusterer "^1.0.13"
     markdown-it "^8.4.0"
 
+vue-element-loading@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue-element-loading/-/vue-element-loading-1.0.4.tgz#5ed172e1bc06e367655d5b46fff7007c927a8fac"
+  integrity sha512-2JARJuONbkAakcxKSpeHAQ2XiJ6Rq8aDCg0AmxO82DXmGtZEt+86pRjxo1uVZm20AjZiBZWUmsf9H7RpsWptyQ==
+  dependencies:
+    vue "^2.5.11"
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"
@@ -7582,7 +7589,7 @@ vue-template-es2015-compiler@^1.6.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
   integrity sha512-x3LV3wdmmERhVCYy3quqA57NJW7F3i6faas++pJQWtknWT+n7k30F4TVdHvCLn48peTJFRvCpxs3UuFPqgeELg==
 
-vue@^2.5.17:
+vue@^2.5.11, vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
   integrity sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ==

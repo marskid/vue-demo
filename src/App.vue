@@ -4,6 +4,9 @@
       <Side-Menu id="side-menu" @click.native="showMenu = !showMenu"></Side-Menu>
     </div>
     <div id="main">
+      <vue-element-loading :active="isLoading">
+        <img src="./assets/loading.gif" width="55px" height="55px">
+      </vue-element-loading>
       <header>
         <a class="menu-link" :class="{ active: showMenu }" href="javascript:void(0);" @click="showMenu = !showMenu">
           <menu-icon v-show="!showMenu"/>
@@ -23,12 +26,14 @@
 <script>
 import CloseIcon from 'icons/Close'
 import MenuIcon from 'icons/Menu'
+import VueElementLoading from 'vue-element-loading'
 import SideMenu from './components/SideMenu.vue'
 
 export default {
   name: 'layout',
   data() {
     return {
+      isLoading: true,
       showMenu: false,
       breadcrumb: ['']
     }
@@ -36,12 +41,19 @@ export default {
   components: {
     CloseIcon,
     MenuIcon,
+    VueElementLoading,
     SideMenu
   },
   mounted() {
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
+    this.$router.beforeEach((to, from, next) => {
+      this.isLoading = true
+      next()
+    })
+    // eslint-disable-next-line
     this.$router.afterEach((to, from) => {
       this.breadcrumb = [ to.name ]
+      this.isLoading = false
     })
   }
 }
@@ -101,6 +113,7 @@ body
     padding-left 0
 
 header
+  height 40px
   border-bottom 1px solid rgba(0,0,0,.1)
   margin-bottom -1px
   background #f9f9f9
@@ -111,10 +124,11 @@ header
   display inline-block
   text-decoration none
   width 40px
+  height 40px
+  text-align center
   font-size 2em
   color #888888
   background-color #191818
-  text-align center
   z-index 1000
 
   @media screen and (max-width: 600px)
@@ -129,9 +143,8 @@ header
   @media screen and (min-width: 600px)
     display none
 
-.breadcrumb
+ul.breadcrumb
   display inline-block
-  height 40px
   padding 0 1em
   margin 0
   list-style-type none
@@ -139,7 +152,7 @@ header
 
   li
     display inline-block
-    line-height 39px
+    line-height 40px
   li + li:before
     color #CCCCCC
     content "/ "

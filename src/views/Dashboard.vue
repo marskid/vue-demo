@@ -165,6 +165,9 @@ export default {
 .title
     padding 0 30px
 
+.table-responsive
+  overflow auto
+
 .pure-table
   width 100%
 

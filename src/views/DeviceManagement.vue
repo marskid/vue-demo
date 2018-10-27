@@ -12,7 +12,7 @@
             </div>
         </section>
         <section class="pure-g">
-            <div class="pure-u-1">
+            <div class="pure-u-1 table-responsive">
                 <table class="pure-table pure-table-horizontal">
                     <thead>
                         <th>#</th>
@@ -95,12 +95,21 @@ export default {
 .pure-form
   padding-top 15px
   float right
+  white-space nowrap
   
   input[name="search"]
     width 250px
+    margin 0
+    display inline-block
+  button
+    margin 0
+
+.table-responsive
+  overflow auto
 
 .pure-table
   width 100%
+  white-space nowrap
 
   .device.disable
     color #909090
