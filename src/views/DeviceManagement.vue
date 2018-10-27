@@ -12,46 +12,48 @@
             </div>
         </section>
         <section class="pure-g">
-            <div class="pure-u-1 table-responsive">
-                <table class="pure-table pure-table-horizontal">
-                    <thead>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Gateway</th>
-                        <th>Adapter</th>
-                        <th>State</th>
-                        <th>IP/Name</th>
-                        <th>Memory</th>
-                        <th>Download</th>
-                        <th>Last Cron Time</th>
-                        <th>Enable</th>
-                        <th>Operations</th>
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in devices" :key="item.index" class="device" :class="item.enable ? 'enable': 'disable'">
-                            <td>{{ item.index }}</td>
-                            <td>{{ item.name }}</td>
-                            <td>{{ item.gateway }}</td>
-                            <td>{{ item.adapter }}</td>
-                            <td>{{ item.state }}</td>
-                            <td>{{ item.addr }}</td>
-                            <td>{{ item.memory }}%</td>
-                            <td>{{ item.download }}</td>
-                            <td>{{ item.lastcrontime }}</td>
-                            <td>
-                                <label :for="'device-'+item.index" class="pure-checkbox">
-                                    <input :id="'device-'+item.index" type="checkbox" v-model="item.enable">
-                                    <span class="checkbox-label">{{ item.enable ? 'Yes' : 'No' }}</span>
-                                </label>
-                            </td>
-                            <td>
-                                <a class="operation" href="javascript:void(0);"><pencil-icon title="Edit"/></a>
-                                <a class="operation" href="javascript:void(0);"><package-down-icon title="Download"/></a>
-                                <a class="operation" href="javascript:void(0);"><delete-forever-icon title="Delete"/></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="pure-u-1">
+                <div class="table-responsive">
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gateway</th>
+                            <th>Adapter</th>
+                            <th>State</th>
+                            <th>IP/Name</th>
+                            <th>Memory</th>
+                            <th>Download</th>
+                            <th>Last Cron Time</th>
+                            <th>Enable</th>
+                            <th>Operations</th>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in devices" :key="item.index" class="device" :class="item.enable ? 'enable': 'disable'">
+                                <td>{{ item.index }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.gateway }}</td>
+                                <td>{{ item.adapter }}</td>
+                                <td>{{ item.state }}</td>
+                                <td>{{ item.addr }}</td>
+                                <td>{{ item.memory }}%</td>
+                                <td>{{ item.download }}</td>
+                                <td>{{ item.lastcrontime }}</td>
+                                <td>
+                                    <label :for="'device-'+item.index" class="pure-checkbox">
+                                        <input :id="'device-'+item.index" type="checkbox" v-model="item.enable">
+                                        <span class="checkbox-label">{{ item.enable ? 'Yes' : 'No' }}</span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <a class="operation" href="javascript:void(0);"><pencil-icon title="Edit"/></a>
+                                    <a class="operation" href="javascript:void(0);"><package-down-icon title="Download"/></a>
+                                    <a class="operation" href="javascript:void(0);"><delete-forever-icon title="Delete"/></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>
@@ -106,6 +108,7 @@ export default {
 
 .table-responsive
   overflow auto
+  border 1px solid #ddd
 
 .pure-table
   width 100%

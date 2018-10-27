@@ -6,38 +6,42 @@
             </div>
         </section>
         <section class="pure-g">
-            <div class="table pure-u-1 pure-u-lg-3-5 table-responsive">
-                <table class="pure-table pure-table-horizontal">
-                    <thead>
-                        <tr><th colspan="3">Sensor Download Types(#)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>SensorType</td><td>Scheduled</td><td>Manual</td></tr>
-                        <tr><td>GPS</td><td>19</td><td>11</td></tr>
-                        <tr><td>SX300</td><td>17</td><td>7</td></tr>
-                        <tr><td>G4</td><td>10</td><td>23</td></tr>
-                        <tr><td>Total</td><td>46</td><td>23</td></tr>
-                    </tbody>
-                </table>
+            <div class="table pure-u-1 pure-u-lg-3-5">
+                <div class="table-responsive">
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr><th colspan="3">Sensor Download Types(#)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SensorType</td><td>Scheduled</td><td>Manual</td></tr>
+                            <tr><td>GPS</td><td>19</td><td>11</td></tr>
+                            <tr><td>SX300</td><td>17</td><td>7</td></tr>
+                            <tr><td>G4</td><td>10</td><td>23</td></tr>
+                            <tr><td>Total</td><td>46</td><td>23</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="echart pure-u-1 pure-u-lg-2-5">
                 <div id="echart-pie1"></div>
             </div>
         </section>
         <section class="pure-g">
-            <div class="table pure-u-1 pure-u-lg-3-5 table-responsive">
-                <table class="pure-table pure-table-horizontal">
-                    <thead>
-                        <tr><th colspan="5">Scheduled Sensor Status(#)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>SensorType</td><td>Active</td><td>Delayed</td><td>Disabled</td><td>Offline</td></tr>
-                        <tr><td>GPS</td><td>9</td><td>1</td><td>5</td><td>4</td></tr>
-                        <tr><td>SX300</td><td>7</td><td>7</td><td>7</td><td>4</td></tr>
-                        <tr><td>G4</td><td>1</td><td>3</td><td>5</td><td>7</td></tr>
-                        <tr><td>Total</td><td>6</td><td>3</td><td>14</td><td>9</td></tr>
-                    </tbody>
-                </table>
+            <div class="table pure-u-1 pure-u-lg-3-5">
+                <div class="table-responsive">
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr><th colspan="5">Scheduled Sensor Status(#)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SensorType</td><td>Active</td><td>Delayed</td><td>Disabled</td><td>Offline</td></tr>
+                            <tr><td>GPS</td><td>9</td><td>1</td><td>5</td><td>4</td></tr>
+                            <tr><td>SX300</td><td>7</td><td>7</td><td>7</td><td>4</td></tr>
+                            <tr><td>G4</td><td>1</td><td>3</td><td>5</td><td>7</td></tr>
+                            <tr><td>Total</td><td>6</td><td>3</td><td>14</td><td>9</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="echart pure-u-1 pure-u-lg-2-5">
                 <div id="echart-pie2"></div>
@@ -156,7 +160,7 @@ export default {
 <style lang="stylus" scoped>
 #dashboard
   width 100%
-  max-width 1000px
+  max-width 1500px
   height calc( 100% - 40px )
 
   >section
@@ -167,6 +171,7 @@ export default {
 
 .table-responsive
   overflow auto
+  border 1px solid #ddd
 
 .pure-table
   width 100%
