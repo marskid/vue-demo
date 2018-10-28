@@ -9,19 +9,23 @@ export default {
     name: 'Map',
     data () {
         return {
-            center: { lng: 0, lat: 0 },
-            zoom: 0
+            center: { lng: 116.404, lat: 39.915 },
+            zoom: 13
         }
     },
     components: {
         BaiduMap
     },
     methods: {
-        // eslint-disable-next-line 
         readyHandler ({BMap, map}) {
-            this.center.lng = 116.404
-            this.center.lat = 39.915
-            this.zoom = 13
+            map.addEventListener("resize", () => {
+                map.setCenter(new BMap.Point(this.center.lng, this.center.lat))
+            })
+            map.addEventListener("moveend", () => {
+                let center = map.getCenter()
+                this.center.lng = center.lng
+                this.center.lat = center.lat
+            })
         }
     }
 }

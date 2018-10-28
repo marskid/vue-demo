@@ -1,11 +1,17 @@
 <template>
   <div id="layout">
     <div id="menu" class="pure-menu" :class="{ active: showMenu }">
-      <Side-Menu id="side-menu" @click.native="showMenu = !showMenu"></Side-Menu>
+      <Side-Menu id="side-menu" @click.native="showMenu = false"></Side-Menu>
     </div>
     <div id="main">
       <vue-element-loading :active="isLoading">
-        <img src="./assets/loading.gif" width="55px" height="55px">
+        <div class="loading la-line-scale la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
       </vue-element-loading>
       <header>
         <a class="menu-link" :class="{ active: showMenu }" href="javascript:void(0);" @click="showMenu = !showMenu">
@@ -24,6 +30,10 @@
 </template>
 
 <script>
+import 'purecss'
+import 'purecss/build/grids-responsive.css'
+import 'vue-material-design-icons/styles.css'
+import 'load-awesome/css/line-scale.css'
 import CloseIcon from 'icons/Close'
 import MenuIcon from 'icons/Menu'
 import VueElementLoading from 'vue-element-loading'
@@ -111,6 +121,9 @@ body
 
   @media screen and (max-width: 600px)
     padding-left 0
+
+.loading
+  color #79bbb5
 
 header
   height 40px

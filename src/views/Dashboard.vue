@@ -52,10 +52,8 @@
 
 <script>
 import echarts from 'echarts/lib/echarts'
-import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/title'
 
 export default {
     name: 'Dashboard',
@@ -63,9 +61,6 @@ export default {
         let echart1 = echarts.init(document.getElementById('echart-pie1'));
         let echart2 = echarts.init(document.getElementById('echart-pie2'));
         echart1.setOption({
-            title: {
-                text: ''
-            },
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -108,9 +103,6 @@ export default {
             ]
         }, true);
         echart2.setOption({
-            title: {
-                text: ''
-            },
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"

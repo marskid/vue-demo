@@ -4563,6 +4563,11 @@ linkify-it@^2.0.0:
   dependencies:
     uc.micro "^1.0.1"
 
+load-awesome@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/load-awesome/-/load-awesome-1.1.0.tgz#5b99cabb28dfaa55bf4446f658c1badcb68eca98"
+  integrity sha1-W5nKuyjfqlW/REb2WMG63LaOypg=
+
 loader-fs-cache@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz#56e0bf08bd9708b26a765b68509840c8dec9fdbc"
@@ -5151,11 +5156,6 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
-
-normalize.css@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
-  integrity sha512-iXcbM3NWr0XkNyfiSBsoPezi+0V92P9nj84yVV1/UZxRUrGczgX/X91KMAGM0omWLY2+2Q1gKD/XRn4gQRDB2A==
 
 npm-bundled@^1.0.1:
   version "1.0.5"

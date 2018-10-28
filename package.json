@@ -5,11 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
     "echarts": "^4.2.0-rc.2",
-    "normalize.css": "^8.0.0",
+    "load-awesome": "^1.1.0",
     "purecss": "^1.0.0",
     "vue": "^2.5.17",
     "vue-baidu-map": "^0.21.13",
