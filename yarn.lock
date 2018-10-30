@@ -2753,12 +2753,12 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-echarts@^4.2.0-rc.2:
-  version "4.2.0-rc.2"
-  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.2.0-rc.2.tgz#6a98397aafa81b65cbf0bc15d9afdbfb244df91e"
-  integrity sha512-5Y4Kyi4eNsRM9Cnl7Q8C6PFVjznBJv1VIiMm/VSQ9zyqeo+ce1695GqUd9v4zfVx+Ow1gnwMJX67h0FNvarScw==
+echarts@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.1.0.tgz#d588c95f73c1a9928b9c73d5b769751c3185bcdc"
+  integrity sha512-gP1e1fNnAj9KJpTDLXV21brklbfJlqeINmpQDJCDta9TX3cPoqyQOiDVcEPzbOVHqgBRgTOwNxC5iGwJ89014A==
   dependencies:
-    zrender "4.0.5"
+    zrender "4.0.4"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -6411,6 +6411,11 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
+resize-detector@^0.1.7:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/resize-detector/-/resize-detector-0.1.9.tgz#69c4222e9c0d3740c995522b4a1cf2656a6526aa"
+  integrity sha512-dZ70I6+XErJ+bQAqc4e/AoAYaKKfdRS4/OLlYykTnaY753E97thIEbZLtJMXm8Uc5qG0lnC7DLfedd52PZpSwg==
+
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -7531,6 +7536,15 @@ vue-baidu-map@^0.21.13:
     bmaplib.markerclusterer "^1.0.13"
     markdown-it "^8.4.0"
 
+vue-echarts@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/vue-echarts/-/vue-echarts-3.1.3.tgz#a65de7fe31e2d18bf38928ccde83e144667ea9e6"
+  integrity sha512-qAGWNnTQ8rXN/Q4/krfcOpHmmlRfAXaT8penBiG6+USnYQo8W3Misjw2RezSfjCGrDcDkrylScpufNu8dwRFRA==
+  dependencies:
+    echarts "^4.1.0"
+    lodash "^4.17.10"
+    resize-detector "^0.1.7"
+
 vue-element-loading@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/vue-element-loading/-/vue-element-loading-1.0.4.tgz#5ed172e1bc06e367655d5b46fff7007c927a8fac"
@@ -7890,7 +7904,7 @@ yorkie@^2.0.0:
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
 
-zrender@4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.0.5.tgz#6e8f738971ce2cd624aac82b2156729b1c0e5a82"
-  integrity sha512-SintgipGEJPT9Sz2ABRoE4ZD7Yzy7oR7j7KP6H+C9FlbHWnLUfGVK7E8UV27pGwlxAMB0EsnrqhXx5XjAfv/KA==
+zrender@4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.0.4.tgz#910e60d888f00c9599073f23758dd23345fe48fd"
+  integrity sha512-03Vd/BDl/cPXp8E61f5+Xbgr/a4vDyFA+uUtUc1s+5KgcPbyY2m+78R/9LQwkR6QwFYHG8qk25Q8ESGs/qpkZw==

@@ -2,7 +2,11 @@ const path = require('path');
 
 module.exports = {
     productionSourceMap: false,
-    transpileDependencies: ["vue-baidu-map"],
+    transpileDependencies: [
+      "vue-baidu-map",
+      "vue-echarts",
+      "resize-detector"
+    ],
     configureWebpack: {
       resolve: {
         alias : {

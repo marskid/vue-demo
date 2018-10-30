@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="echart pure-u-1 pure-u-lg-2-5">
-                <div id="echart-pie1"></div>
+                <v-chart id="echart-pie1" :options="echartPie1"/>
             </div>
         </section>
         <section class="pure-g">
@@ -44,107 +44,110 @@
                 </div>
             </div>
             <div class="echart pure-u-1 pure-u-lg-2-5">
-                <div id="echart-pie2"></div>
+                <v-chart id="echart-pie2" :options="echartPie2"/>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-import echarts from 'echarts/lib/echarts'
+import ECharts from 'vue-echarts/components/ECharts.vue'
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 
 export default {
     name: 'Dashboard',
-    mounted() {
-        let echart1 = echarts.init(document.getElementById('echart-pie1'));
-        let echart2 = echarts.init(document.getElementById('echart-pie2'));
-        echart1.setOption({
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: 'left',
-                data:['GPS','SX300','G4']
-            },
-            series: [
-                {
-                    name:'Total',
-                    type:'pie',
-                    radius: ['50%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'center'
-                        },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                fontSize: '30',
-                                fontWeight: 'bold'
+    components: {
+        'v-chart': ECharts
+    },
+    data() {
+        return {
+            echartPie1: {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['GPS','SX300','G4']
+                },
+                series: [
+                    {
+                        name:'Total',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
                             }
-                        }
-                    },
-                    labelLine: {
-                        normal: {
-                            show: false
-                        }
-                    },
-                    data:[
-                        {value:30, name:'GPS'},
-                        {value:24, name:'SX300'},
-                        {value:33, name:'G4'},
-                    ]
-                }
-            ]
-        }, true);
-        echart2.setOption({
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: 'left',
-                data:['Active','Delayed','Disabled', 'Offline']
-            },
-            series: [
-                {
-                    name:'Total',
-                    type:'pie',
-                    radius: ['50%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'center'
                         },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                fontSize: '30',
-                                fontWeight: 'bold'
+                        labelLine: {
+                            normal: {
+                                show: false
                             }
-                        }
-                    },
-                    labelLine: {
-                        normal: {
-                            show: false
-                        }
-                    },
-                    data:[
-                        {value:30, name:'Active'},
-                        {value:24, name:'Delayed'},
-                        {value:33, name:'Disabled'},
-                        {value:40, name:'Offline'},
-                    ]
-                }
-            ]
-        }, true);
+                        },
+                        data:[
+                            {value:30, name:'GPS'},
+                            {value:24, name:'SX300'},
+                            {value:33, name:'G4'},
+                        ]
+                    }
+                ]
+            },
+            echartPie2: {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['Active','Delayed','Disabled', 'Offline']
+                },
+                series: [
+                    {
+                        name:'Total',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:30, name:'Active'},
+                            {value:24, name:'Delayed'},
+                            {value:33, name:'Disabled'},
+                            {value:40, name:'Offline'},
+                        ]
+                    }
+                ]
+            }
+        }
     }
 }
 </script>
@@ -171,7 +174,7 @@ export default {
   tbody tr:last-child, thead tr:first-child
     background-color #dddddd
 
-#echart-pie1,#echart-pie2
+#echart-pie1, #echart-pie2
   width 200px
   height 200px
   margin 0 auto
