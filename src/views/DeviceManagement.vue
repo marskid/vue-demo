@@ -75,6 +75,9 @@ export default {
         devices() {
             return this.$store.state.devices
         }
+    },
+    mounted() {
+        this.$store.dispatch('fetchDevice')
     }
 }
 </script>

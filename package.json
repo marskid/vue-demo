@@ -9,6 +9,7 @@
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "echarts": "^4.2.0-rc.2",
     "load-awesome": "^1.1.0",
     "purecss": "^1.0.0",

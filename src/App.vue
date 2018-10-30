@@ -4,7 +4,7 @@
       <Side-Menu id="side-menu" @click.native="showMenu = false"></Side-Menu>
     </div>
     <div id="main">
-      <vue-element-loading :active="isLoading">
+      <vue-element-loading :active="isLoading" @click.native="isLoading = false">
         <div class="loading la-line-scale la-2x">
             <div></div>
             <div></div>
@@ -12,6 +12,7 @@
             <div></div>
             <div></div>
         </div>
+        <span v-show="typeof isLoading == 'string'">{{ isLoading }}</span>
       </vue-element-loading>
       <header>
         <a class="menu-link" :class="{ active: showMenu }" href="javascript:void(0);" @click="showMenu = !showMenu">
@@ -43,7 +44,6 @@ export default {
   name: 'layout',
   data() {
     return {
-      isLoading: true,
       showMenu: false,
       breadcrumb: ['']
     }
@@ -54,12 +54,22 @@ export default {
     VueElementLoading,
     SideMenu
   },
+  computed: {
+    isLoading: {
+      get() {
+        return this.$store.state.isLoading
+      },
+      set(loading) {
+        this.$store.commit('loading', loading)
+      }
+    }
+  },
   mounted() {
     // eslint-disable-next-line
     this.$router.beforeEach((to, from, next) => {
       this.isLoading = true
       next()
-    })
+    }),
     // eslint-disable-next-line
     this.$router.afterEach((to, from) => {
       this.breadcrumb = [ to.name ]
