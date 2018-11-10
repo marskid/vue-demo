@@ -44,6 +44,7 @@ export default {
   watch: {
     $route(to) {
       this.breadcrumb = [ to.name ]
+      document.title = to.name
     }
   }
 }

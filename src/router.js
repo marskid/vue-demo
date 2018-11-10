@@ -40,6 +40,11 @@ export default new Router({
       path: '/DeviceManagement',
       name: 'Device Management',
       component: () => AsyncLoad(import(/* webpackChunkName: "DeviceManagement" */ './views/DeviceManagement.vue'))
+    },
+    {
+      path: '*',
+      name: '404 Not Found',
+      component: () => AsyncLoad(import(/* webpackChunkName: "404NotFound" */ './views/ErrorNotFound.vue'))
     }
   ]
 })
