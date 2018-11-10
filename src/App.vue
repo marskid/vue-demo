@@ -4,16 +4,6 @@
       <Side-Menu id="side-menu" @click.native="showMenu = false"></Side-Menu>
     </div>
     <div id="main">
-      <vue-element-loading :active="isLoading" @click.native="isLoading = false">
-        <div class="loading la-line-scale la-2x">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <span v-show="typeof isLoading == 'string'">{{ isLoading }}</span>
-      </vue-element-loading>
       <header>
         <a class="menu-link" :class="{ active: showMenu }" href="javascript:void(0);" @click="showMenu = !showMenu">
           <menu-icon v-show="!showMenu"/>
@@ -23,7 +13,7 @@
           <li v-for="(item, index) in breadcrumb" :key="index"><span>{{ item }}</span></li>
         </ul>
       </header>
-      <keep-alive>
+      <keep-alive include="Dashboard,Map">
         <router-view></router-view>
       </keep-alive>
     </div>
@@ -34,10 +24,8 @@
 import 'purecss'
 import 'purecss/build/grids-responsive.css'
 import 'vue-material-design-icons/styles.css'
-import 'load-awesome/css/line-scale.css'
 import CloseIcon from 'icons/Close'
 import MenuIcon from 'icons/Menu'
-import VueElementLoading from 'vue-element-loading'
 import SideMenu from './components/SideMenu.vue'
 
 export default {
@@ -51,30 +39,12 @@ export default {
   components: {
     CloseIcon,
     MenuIcon,
-    VueElementLoading,
     SideMenu
   },
-  computed: {
-    isLoading: {
-      get() {
-        return this.$store.state.isLoading
-      },
-      set(loading) {
-        this.$store.commit('loading', loading)
-      }
-    }
-  },
-  mounted() {
-    // eslint-disable-next-line
-    this.$router.beforeEach((to, from, next) => {
-      this.isLoading = true
-      next()
-    }),
-    // eslint-disable-next-line
-    this.$router.afterEach((to, from) => {
+  watch: {
+    $route(to) {
       this.breadcrumb = [ to.name ]
-      this.isLoading = false
-    })
+    }
   }
 }
 </script>
@@ -131,9 +101,6 @@ body
 
   @media screen and (max-width: 600px)
     padding-left 0
-
-.loading
-  color #79bbb5
 
 header
   height 40px

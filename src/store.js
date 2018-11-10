@@ -8,7 +8,12 @@ const API = axios.create({
   baseURL: 'https://json-api-marskid.now.sh'
 })
 
+const VuexPlugin = (store) => {
+  store.dispatch('fetchDevice')
+}
+
 export default new Vuex.Store({
+  plugins: [ VuexPlugin ],
   state: {
     isLoading: true,
     devices: []
@@ -24,7 +29,7 @@ export default new Vuex.Store({
   actions: {
     fetchDevice(context) {
       context.commit('loading', true)
-      return API.get('/device').then((res) => {
+      return API.get('/api/v1/devices').then((res) => {
         context.commit('loading', false)
         context.commit('devices', res.data.devices)
       }).catch((error) => {
